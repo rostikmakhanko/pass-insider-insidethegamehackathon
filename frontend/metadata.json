@@ -1,0 +1,6 @@
+{
+  "name": "PassVector - Pro Football Tactical & Pass Analytics Workbench",
+  "description": "Professional football tactical pitch analyzer, passing vector network generator, spatial Voronoi territory calculation, and Expected Threat (xT) telemetry workbench.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

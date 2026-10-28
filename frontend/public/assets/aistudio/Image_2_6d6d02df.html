@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+
+<html class="" lang="en" style="height: auto !important; min-height: 100vh; overflow-y: auto !important; overflow-x: hidden; position: static;"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600;700&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;height:auto!important;min-height:100vh;overflow-y:auto!important;overflow-x:hidden;position:static;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#0f5238", "surface-container-high": "#e2e7ff", "tertiary-fixed-dim": "#ffb4ab", error: "#ba1a1a", "secondary-container": "#316bf3", "surface-container-low": "#f2f3ff", "inverse-surface": "#283044", surface: "#faf8ff", "surface-container": "#eaedff", "tertiary-fixed": "#ffdad6", "on-tertiary-fixed": "#410002", "on-tertiary-container": "#ffcec9", "secondary-fixed": "#dbe1ff", "surface-container-highest": "#dae2fd", "on-secondary-container": "#fefcff", secondary: "#0051d5", "on-error-container": "#93000a", "surface-container-lowest": "#ffffff", "on-tertiary": "#ffffff", "surface-tint": "#2c694e", "on-primary": "#ffffff", "tertiary-container": "#c00815", "on-surface-variant": "#404943", "on-secondary": "#ffffff", "on-primary-container": "#a8e7c5", "primary-fixed-dim": "#95d4b3", outline: "#707973", tertiary: "#94000c", "on-tertiary-fixed-variant": "#93000b", "on-surface": "#131b2e", "error-container": "#ffdad6", "on-secondary-fixed-variant": "#003ea8", "outline-variant": "#bfc9c1", "secondary-fixed-dim": "#b4c5ff", "on-error": "#ffffff", "surface-variant": "#dae2fd", "primary-fixed": "#b1f0ce", "inverse-on-surface": "#eef0ff", "on-primary-fixed": "#002114", "surface-dim": "#d2d9f4", "inverse-primary": "#95d4b3", "primary-container": "#2d6a4f", background: "#faf8ff", "surface-bright": "#faf8ff", "on-secondary-fixed": "#00174b", "on-background": "#131b2e", "on-primary-fixed-variant": "#0e5138"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {"space-sm": "0.5rem", gutter: "1rem", "space-2xl": "2rem", "space-md": "0.75rem", "space-lg": "1rem", "gutter-sm": "0.5rem", "space-xs": "0.25rem", "space-xl": "1.5rem", "margin-mobile": "0.75rem", "gutter-lg": "1.5rem", margin: "1.5rem"}, fontFamily: {"label-caps": ["JetBrains Mono"], "display-xl-mobile": ["Space Grotesk"], "headline-lg-mobile": ["Space Grotesk"], "title-md": ["Inter"], "headline-md": ["Space Grotesk"], "body-md": ["Inter"], "tactical-node": ["JetBrains Mono"], "headline-lg": ["Space Grotesk"], "data-mono-lg": ["JetBrains Mono"], "data-mono-md": ["JetBrains Mono"], "body-lg": ["Inter"], "display-xl": ["Space Grotesk"]}, fontSize: {"label-caps": ["11px", {lineHeight: "14px", letterSpacing: "0.08em", fontWeight: "600"}], "display-xl-mobile": ["30px", {lineHeight: "38px", letterSpacing: "-0.02em", fontWeight: "700"}], "headline-lg-mobile": ["22px", {lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600"}], "title-md": ["16px", {lineHeight: "22px", letterSpacing: "-0.01em", fontWeight: "600"}], "headline-md": ["20px", {lineHeight: "26px", letterSpacing: "-0.01em", fontWeight: "600"}], "body-md": ["13px", {lineHeight: "18px", fontWeight: "400"}], "tactical-node": ["10px", {lineHeight: "12px", fontWeight: "700"}], "headline-lg": ["28px", {lineHeight: "36px", letterSpacing: "-0.02em", fontWeight: "600"}], "data-mono-lg": ["16px", {lineHeight: "20px", letterSpacing: "-0.02em", fontWeight: "600"}], "data-mono-md": ["12px", {lineHeight: "16px", fontWeight: "500"}], "body-lg": ["15px", {lineHeight: "22px", fontWeight: "400"}], "display-xl": ["40px", {lineHeight: "48px", letterSpacing: "-0.03em", fontWeight: "700"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container" style="height: auto !important; min-height: 100vh; overflow-y: auto !important; overflow-x: hidden; position: static;"><header class="fixed top-0 left-0 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl z-50 shadow-[0_1px_8px_rgba(0,0,0,0.2)]"><div class="h-16 w-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="PassVector Analytics Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Wqb4Wg9hcUk5qHugyLjYWZQ3ZWdbznnQTC_l0nBgD_5aL0ApVollgSmXGaiFTExoSwU4DtSi5qRPwJrXJxVjHIminGn5yi1qBMR4pOyq7GyyzgcfC9COGLpkqf6Hcv9F-jy_MkBP5mXdRhej7BU7svv7F6yhtBMbSqaoayriBgyWCR0-VJsJlAeU0l1x-4e6n2YPDL68kCWd_ly4nPnUk-iMqnFFEvDHpeh1XbD47ULBMqRZEP_nBO82Q"/><div class="flex flex-col"><span class="font-headline-md text-headline-md tracking-tight uppercase text-on-surface font-bold">PassVector</span><span class="font-label-caps text-label-caps text-primary tracking-widest">PRO ANALYST v4.2</span></div></div><div class="h-6 w-px bg-surface-container-highest"></div><div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs rounded-lg"><span class="material-symbols-outlined text-secondary text-sm">folder_managed</span><div class="flex flex-col"><span class="font-tactical-node text-tactical-node text-on-surface-variant uppercase tracking-wider">Active Session</span><span class="font-title-md text-title-md text-on-surface font-medium truncate max-w-xs">Manchester Blue vs Real Madrid - UCL Final Q1 24'</span></div><span class="material-symbols-outlined text-on-surface-variant text-sm cursor-pointer hover:text-on-surface">unfold_more</span></div><div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-space-xs rounded"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase">LIVE TELEMETRY</span></div></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded"><a aria-current="page" class="px-space-md py-space-xs transition-colors bg-primary-container text-on-primary-container font-semibold rounded" data-path="tactical-canvas" href="#">Pitch Workbench</a><a class="px-space-md py-space-xs font-title-md text-title-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="passing-network" href="#">Network Matrix</a><a class="px-space-md py-space-xs font-title-md text-title-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="territory-xg" href="#">Voronoi &amp; xT</a><a class="px-space-md py-space-xs font-title-md text-title-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="match-archive" href="#">Match Vault</a></nav><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs bg-surface-container-low p-space-xs rounded-lg"><button class="px-space-sm py-space-xs rounded font-title-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center gap-1" type="button"><span class="material-symbols-outlined text-sm">edit</span><span class="">Draw Mode</span></button><button class="px-space-sm py-space-xs rounded font-title-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center gap-1" type="button"><span class="material-symbols-outlined text-sm">ink_eraser</span><span class="">Clear</span></button><button class="px-space-sm py-space-xs rounded font-title-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center gap-1" type="button"><span class="material-symbols-outlined text-sm">play_arrow</span><span class="">Animate</span></button><button class="px-space-sm py-space-xs rounded font-title-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center gap-1" type="button"><span class="material-symbols-outlined text-sm">grid_view</span><span class="">Preset</span></button><button class="px-space-sm py-space-xs rounded bg-primary text-on-primary font-headline-md text-body-md font-bold flex items-center gap-1 hover:bg-primary-fixed transition-colors" type="button"><span class="material-symbols-outlined text-sm">ios_share</span><span class="">Export</span></button></div><div class="h-6 w-px bg-surface-container-highest"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right hidden sm:flex"><span class="font-label-caps text-label-caps text-on-surface">L. Moretti</span><span class="font-tactical-node text-tactical-node text-primary">Lead Analyst</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-primary/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvTpGqfTGgsXbayi1SfSR8sw22Q8B68Pz-TxXHFlbStUl0xAiwvzgxIisxRLLmcFpOlmlR5nqhCFWBCMRAYS8Z0kM6d5WVTIUnc7p3lWXhyYf_1O-igXT18wuB_qgK6x6jhN3B_M9h-trH1fCqGB3Ouq1vC1Vk7VpAiY2Yu263y-1gaAOdKUkXOIoU2fPF19BmXDzlm83rHWnYEhzHCJjdNf43Ua1hT5A9K-1Z8zeQhlsdcEgidWkSaQ"/></div></div></div></header><aside class="fixed left-0 top-16 bottom-0 w-16 bg-surface-container-lowest z-40 flex flex-col items-center py-space-md justify-between shadow-[1px_0_12px_rgba(0,0,0,0.3)]"><div class="flex flex-col items-center gap-space-sm w-full"><button class="w-11 h-11 rounded flex items-center justify-center bg-primary-container text-on-primary-container transition-colors" title="Select &amp; Drag Pointer" type="button"><span class="material-symbols-outlined text-lg">near_me</span></button><button class="w-11 h-11 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Ground Pass Vector" type="button"><span class="material-symbols-outlined text-lg">arrow_right_alt</span></button><button class="w-11 h-11 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Curved Aerial / Cross Vector" type="button"><span class="material-symbols-outlined text-lg">turn_right</span></button><button class="w-11 h-11 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Pressing Corridor &amp; Polygon Zone" type="button"><span class="material-symbols-outlined text-lg">polyline</span></button><button class="w-11 h-11 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Pitch Spatial Grid Alignment" type="button"><span class="material-symbols-outlined text-lg">grid_4x4</span></button><button class="w-11 h-11 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Distance Caliper (Meters/Yards)" type="button"><span class="material-symbols-outlined text-lg">straighten</span></button></div><div class="flex flex-col items-center gap-space-sm w-full"><button class="w-11 h-11 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Tactical Whiteboard Layer Toggle" type="button"><span class="material-symbols-outlined text-lg">layers</span></button><button class="w-11 h-11 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Telemetry Settings" type="button"><span class="material-symbols-outlined text-lg">settings</span></button></div></aside><div class="pl-16"><main class="relative pt-16 bg-surface" style="min-height: calc(100vh - 4rem);"><div class="flex flex-col w-full">
+<!-- HUD Top Bar: Pitch Telemetry Metrics & Fast Tactical Action Trigger Array -->
+<section class="w-full px-space-lg py-space-md bg-surface-container-low shadow-sm flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<!-- Quick Action Presets -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider mr-space-xs">Tactic Setup:</span>
+<button class="px-space-sm py-space-xs rounded bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-title-md text-body-md flex items-center gap-1 active:scale-95" id="btn-preset-433" type="button">
+<span class="material-symbols-outlined text-sm text-primary">schema</span>
+<span class="">4-3-3 Attacking</span>
+</button>
+<button class="px-space-sm py-space-xs rounded bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-title-md text-body-md flex items-center gap-1 active:scale-95" id="btn-preset-4231" type="button">
+<span class="material-symbols-outlined text-sm text-secondary">grid_goldenratio</span>
+<span class="">4-2-3-1 High Press</span>
+</button>
+<button class="px-space-sm py-space-xs rounded bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-title-md text-body-md flex items-center gap-1 active:scale-95" id="btn-flip-dir" type="button">
+<span class="material-symbols-outlined text-sm text-primary">swap_horiz</span>
+<span class="">Invert Pitch Axis</span>
+</button>
+<button class="px-space-sm py-space-xs rounded bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-title-md text-body-md flex items-center gap-1 active:scale-95" id="btn-toggle-voronoi" type="button">
+<span class="material-symbols-outlined text-sm text-tertiary">grain</span>
+<span class="" id="voronoi-label">Territorial Voronoi: OFF</span>
+</button>
+</div>
+<!-- Quick Session Indicator -->
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-space-xs rounded">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+<span class="font-data-mono-md text-data-mono-md text-on-surface">PITCH ENGINE: ACTIVE DYNAMICS</span>
+</div>
+<button class="px-space-sm py-space-xs rounded bg-surface-container-highest text-error font-headline-md text-body-md font-bold flex items-center gap-1 hover:bg-error-container hover:text-on-error-container transition-colors" id="btn-reset-vectors" type="button">
+<span class="material-symbols-outlined text-sm">restart_alt</span>
+<span class="">Reset Vectors</span>
+</button>
+</div>
+</div>
+<!-- Live Telemetry KPI Matrix -->
+<div class="grid grid-cols-2 md:grid-cols-5 gap-space-sm pt-space-xs">
+<div class="bg-surface-container p-space-sm rounded flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">PASS ACCURACY</span>
+<span class="material-symbols-outlined text-sm text-primary">insights</span>
+</div>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-display-xl text-headline-lg font-bold text-on-surface" id="stat-pass-acc">88.6%</span>
+<span class="font-data-mono-md text-data-mono-md text-primary">+3.2% vs avg</span>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm rounded flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">AVG PASS DISTANCE</span>
+<span class="material-symbols-outlined text-sm text-secondary">straighten</span>
+</div>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-display-xl text-headline-lg font-bold text-on-surface" id="stat-pass-dist">19.4m</span>
+<span class="font-data-mono-md text-data-mono-md text-secondary">Tempo: Rapid</span>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm rounded flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">EXPECTED THREAT (xT)</span>
+<span class="material-symbols-outlined text-sm text-tertiary">bolt</span>
+</div>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-display-xl text-headline-lg font-bold text-primary" id="stat-xt">+1.48</span>
+<span class="font-data-mono-md text-data-mono-md text-primary-container bg-primary/20 px-1 rounded">Net Flow</span>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm rounded flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">PROGRESSIVE PASSES</span>
+<span class="material-symbols-outlined text-sm text-on-surface-variant">fast_forward</span>
+</div>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-display-xl text-headline-lg font-bold text-on-surface" id="stat-prog-passes">22</span>
+<span class="font-data-mono-md text-data-mono-md text-on-surface-variant">14 Final Third</span>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm rounded flex flex-col justify-between col-span-2 md:col-span-1">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">TERRITORIAL TILT</span>
+<span class="material-symbols-outlined text-sm text-secondary">pie_chart</span>
+</div>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-display-xl text-headline-lg font-bold text-secondary" id="stat-field-tilt">64% / 36%</span>
+<span class="font-data-mono-md text-data-mono-md text-on-surface-variant">Dominant</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Vector Engine Floating Toolbar Overlay Context Bar -->
+<section class="w-full px-space-lg pt-space-md flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-space-xs bg-surface-container-high px-space-sm py-1 rounded">
+<span class="font-label-caps text-label-caps text-on-surface-variant">MODE:</span>
+<button class="px-space-sm py-0.5 rounded bg-primary text-on-primary font-label-caps text-label-caps flex items-center gap-1 shadow-sm" id="btn-draw-mode" type="button">
+<span class="material-symbols-outlined text-sm">timeline</span>
+<span class="">DRAW VECTOR</span>
+</button>
+<button class="px-space-sm py-0.5 rounded text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps flex items-center gap-1" id="btn-drag-mode" type="button">
+<span class="material-symbols-outlined text-sm">pan_tool</span>
+<span class="">MOVE PLAYER</span>
+</button>
+</div>
+<div class="h-5 w-px bg-surface-container-highest hidden sm:block"></div>
+<!-- Vector Types -->
+<div class="flex items-center gap-1 bg-surface-container px-space-xs py-1 rounded">
+<button class="vector-type-btn active px-2 py-0.5 rounded bg-primary-container text-on-primary-container font-tactical-node text-tactical-node flex items-center gap-1" data-vtype="ground" id="vt-ground" type="button">
+<span class="w-2 h-0.5 bg-primary rounded-full"></span> Ground Pass
+        </button>
+<button class="vector-type-btn px-2 py-0.5 rounded text-on-surface-variant hover:text-on-surface font-tactical-node text-tactical-node flex items-center gap-1" data-vtype="aerial" id="vt-aerial" type="button">
+<span class="w-2 h-0.5 border-t border-dashed border-secondary"></span> Aerial / Cross
+        </button>
+<button class="vector-type-btn px-2 py-0.5 rounded text-on-surface-variant hover:text-on-surface font-tactical-node text-tactical-node flex items-center gap-1" data-vtype="through" id="vt-through" type="button">
+<span class="material-symbols-outlined text-xs text-tertiary">arrow_outward</span> Through Run
+        </button>
+</div>
+</div>
+<!-- Active Selection Quick Peek -->
+<div class="flex items-center gap-space-sm">
+<span class="font-label-caps text-label-caps text-on-surface-variant">FOCUSED TACTICAL NODE:</span>
+<div class="px-space-sm py-0.5 rounded bg-surface-container-high text-on-surface font-data-mono-md text-data-mono-md flex items-center gap-2" id="inspector-badge">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="" id="inspector-name">#17 K. De Bruyne (AM)</span>
+<span class="text-primary font-bold">xT: +0.58</span>
+</div>
+</div>
+</section>
+<!-- Central Football Pitch Sandbox -->
+<section class="w-full px-space-lg py-space-md">
+<div class="relative w-full overflow-hidden rounded-xl bg-surface-container-lowest shadow-xl p-space-sm select-none">
+<!-- Pitch Canvas Frame: 105m x 68m Regulation Aspect Ratio (~1.54) -->
+<div class="relative w-full aspect-[16/9] md:aspect-[1.544] rounded-lg overflow-hidden bg-[#1b4332] shadow-inner cursor-crosshair" id="pitch-container">
+<!-- Realistic Grass Mowing Pattern Stripes (18 horizontal turf cuts) -->
+<div class="absolute inset-0 flex flex-row pointer-events-none opacity-90">
+<div class="flex-1 bg-[#1b4332]"></div>
+<div class="flex-1 bg-[#204e3b]"></div>
+<div class="flex-1 bg-[#1b4332]"></div>
+<div class="flex-1 bg-[#204e3b]"></div>
+<div class="flex-1 bg-[#1b4332]"></div>
+<div class="flex-1 bg-[#204e3b]"></div>
+<div class="flex-1 bg-[#1b4332]"></div>
+<div class="flex-1 bg-[#204e3b]"></div>
+<div class="flex-1 bg-[#1b4332]"></div>
+<div class="flex-1 bg-[#204e3b]"></div>
+<div class="flex-1 bg-[#1b4332]"></div>
+<div class="flex-1 bg-[#204e3b]"></div>
+<div class="flex-1 bg-[#1b4332]"></div>
+<div class="flex-1 bg-[#204e3b]"></div>
+<div class="flex-1 bg-[#1b4332]"></div>
+<div class="flex-1 bg-[#204e3b]"></div>
+</div>
+<!-- Optional Voronoi Simulation Polygons Underlay -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-0 transition-opacity duration-300 z-10" id="voronoi-svg" preserveaspectratio="none" viewbox="0 0 1050 680">
+<g id="voronoi-zones">
+<!-- Dynamic territorial zones rendered via JS -->
+</g>
+</svg>
+<!-- Official Pitch Markings Layer (Accurate SVG markings: 1050x680 coordinate space) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-10" preserveaspectratio="none" viewbox="0 0 1050 680">
+<!-- Boundary Touchlines & Goal Lines -->
+<rect fill="none" height="630" stroke="rgba(255,255,255,0.75)" stroke-width="2.5" width="1000" x="25" y="25"></rect>
+<!-- Halfway Line & Center Spot / Circle -->
+<line stroke="rgba(255,255,255,0.75)" stroke-width="2.5" x1="525" x2="525" y1="25" y2="655"></line>
+<circle cx="525" cy="340" fill="none" r="91.5" stroke="rgba(255,255,255,0.75)" stroke-width="2.5"></circle>
+<circle cx="525" cy="340" fill="rgba(255,255,255,0.9)" r="4.5"></circle>
+<!-- Left Penalty Area (18-yard box: 165m x 403m proportional) -->
+<rect fill="none" height="403" stroke="rgba(255,255,255,0.75)" stroke-width="2.5" width="165" x="25" y="138.5"></rect>
+<!-- Left Goal Area (6-yard box: 55m x 183m) -->
+<rect fill="none" height="183" stroke="rgba(255,255,255,0.75)" stroke-width="2.5" width="55" x="25" y="248.5"></rect>
+<!-- Left Penalty Spot & Penalty Arc (D-box) -->
+<circle cx="135" cy="340" fill="rgba(255,255,255,0.9)" r="4.5"></circle>
+<path d="M 190,268 A 91.5 91.5 0 0 1 190,412" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2.5"></path>
+<!-- Left Goal Mouth -->
+<rect fill="none" height="73.2" stroke="rgba(255,255,255,0.5)" stroke-width="2" width="15" x="10" y="303.4"></rect>
+<!-- Right Penalty Area -->
+<rect fill="none" height="403" stroke="rgba(255,255,255,0.75)" stroke-width="2.5" width="165" x="860" y="138.5"></rect>
+<!-- Right Goal Area -->
+<rect fill="none" height="183" stroke="rgba(255,255,255,0.75)" stroke-width="2.5" width="55" x="970" y="248.5"></rect>
+<!-- Right Penalty Spot & Penalty Arc -->
+<circle cx="915" cy="340" fill="rgba(255,255,255,0.9)" r="4.5"></circle>
+<path d="M 860,268 A 91.5 91.5 0 0 0 860,412" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2.5"></path>
+<!-- Right Goal Mouth -->
+<rect fill="none" height="73.2" stroke="rgba(255,255,255,0.5)" stroke-width="2" width="15" x="1025" y="303.4"></rect>
+<!-- Corner Arcs (1m radius) -->
+<path d="M 25,35 A 10 10 0 0 0 35,25" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2.5"></path>
+<path d="M 25,645 A 10 10 0 0 1 35,655" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2.5"></path>
+<path d="M 1015,25 A 10 10 0 0 0 1025,35" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2.5"></path>
+<path d="M 1015,655 A 10 10 0 0 1 1025,645" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2.5"></path>
+</svg>
+<!-- Pass Vectors Dynamic SVG Layer (Rendered Lines, Curves, Arrowheads & Labels) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-20" id="vector-layer" preserveaspectratio="none" viewbox="0 0 1050 680">
+<defs>
+<marker id="arrow-ground" markerheight="6" markerwidth="6" orient="auto-start-reverse" refx="8" refy="5" viewbox="0 0 10 10">
+<path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7"></path>
+</marker>
+<marker id="arrow-aerial" markerheight="6" markerwidth="6" orient="auto-start-reverse" refx="8" refy="5" viewbox="0 0 10 10">
+<path d="M 0 1 L 10 5 L 0 9 z" fill="#b4c5ff"></path>
+</marker>
+<marker id="arrow-through" markerheight="6" markerwidth="6" orient="auto-start-reverse" refx="8" refy="5" viewbox="0 0 10 10">
+<path d="M 0 1 L 10 5 L 0 9 z" fill="#ffb4ab"></path>
+</marker>
+</defs>
+<g id="pass-lines-group"><path class="transition-all" d="M 84 340 L 231 421.6" fill="none" marker-end="url(#arrow-ground)" stroke="#0284c7" stroke-dasharray="none" stroke-width="2.8"></path><g class="cursor-pointer hover:opacity-100" transform="translate(157.5, 380.8)"><rect fill="#0b1326" height="20" opacity="0.92" rx="4" stroke="#0284c7" stroke-width="1" width="76" x="-38" y="-11"></rect><text fill="#dae2fd" font-family="JetBrains Mono" font-size="9.5px" font-weight="600" text-anchor="middle" x="0" y="3">18m • +0.03</text></g><path class="transition-all" d="M 231 421.6 L 399 340" fill="none" marker-end="url(#arrow-ground)" stroke="#0284c7" stroke-dasharray="none" stroke-width="2.8"></path><g class="cursor-pointer hover:opacity-100" transform="translate(315, 380.8)"><rect fill="#0b1326" height="20" opacity="0.92" rx="4" stroke="#0284c7" stroke-width="1" width="76" x="-38" y="-11"></rect><text fill="#dae2fd" font-family="JetBrains Mono" font-size="9.5px" font-weight="600" text-anchor="middle" x="0" y="3">22m • +0.11</text></g><path class="transition-all" d="M 399 340 L 462 475.99999999999994" fill="none" marker-end="url(#arrow-ground)" stroke="#0284c7" stroke-dasharray="none" stroke-width="2.8"></path><g class="cursor-pointer hover:opacity-100" transform="translate(430.5, 408)"><rect fill="#0b1326" height="20" opacity="0.92" rx="4" stroke="#0284c7" stroke-width="1" width="76" x="-38" y="-11"></rect><text fill="#dae2fd" font-family="JetBrains Mono" font-size="9.5px" font-weight="600" text-anchor="middle" x="0" y="3">24m • +0.24</text></g><path class="transition-all" d="M 462 475.99999999999994 L 525 340" fill="none" marker-end="url(#arrow-through)" stroke="#ffb4ab" stroke-dasharray="none" stroke-width="2.8"></path><g class="cursor-pointer hover:opacity-100" transform="translate(493.5, 408)"><rect fill="#0b1326" height="20" opacity="0.92" rx="4" stroke="#ffb4ab" stroke-width="1" width="76" x="-38" y="-11"></rect><text fill="#dae2fd" font-family="JetBrains Mono" font-size="9.5px" font-weight="600" text-anchor="middle" x="0" y="3">26m • +0.38</text></g><path class="transition-all" d="M 273 108.8 Q 396.28015267246843 70.67118599991758 514.5 122.39999999999999" fill="none" marker-end="url(#arrow-aerial)" stroke="#b4c5ff" stroke-dasharray="6,4" stroke-width="2.8"></path><g class="cursor-pointer hover:opacity-100" transform="translate(393.75, 115.6)"><rect fill="#0b1326" height="20" opacity="0.92" rx="4" stroke="#b4c5ff" stroke-width="1" width="76" x="-38" y="-11"></rect><text fill="#dae2fd" font-family="JetBrains Mono" font-size="9.5px" font-weight="600" text-anchor="middle" x="0" y="3">32m • +0.18</text></g><path class="transition-all" d="M 672 231.20000000000002 L 556.5 530.4" fill="none" marker-end="url(#arrow-through)" stroke="#ffb4ab" stroke-dasharray="none" stroke-width="2.8"></path><g class="cursor-pointer hover:opacity-100" transform="translate(614.25, 380.8)"><rect fill="#0b1326" height="20" opacity="0.92" rx="4" stroke="#ffb4ab" stroke-width="1" width="76" x="-38" y="-11"></rect><text fill="#dae2fd" font-family="JetBrains Mono" font-size="9.5px" font-weight="600" text-anchor="middle" x="0" y="3">38m • +0.34</text></g></g>
+<!-- Active Draft Vector Line while dragging -->
+<line class="hidden" id="draft-vector-line" stroke="#95d4b3" stroke-dasharray="4,4" stroke-width="2" x1="0" x2="0" y1="0" y2="0"></line>
+</svg>
+<!-- Interactive 22 Player Markers (HTML Drag Nodes) -->
+<div class="absolute inset-0 w-full h-full z-30 pointer-events-none" id="players-layer"></div>
+<!-- In-Pitch Tactical Watermark & Spatial Zones Display -->
+<div class="absolute bottom-3 left-4 z-10 pointer-events-none flex items-center gap-space-sm bg-surface-container-lowest/80 px-space-sm py-1 rounded backdrop-blur">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-tactical-node text-tactical-node text-on-surface">MANCHESTER BLUE (4-3-3)</span>
+<span class="font-data-mono-md text-data-mono-md text-on-surface-variant">← ATTACKING AXIS →</span>
+<span class="font-tactical-node text-tactical-node text-error">MADRID BLANCO (4-3-3)</span>
+</div>
+</div>
+<!-- Pitch Vector Controller Mini-bar -->
+<div class="w-full mt-space-sm px-space-xs flex flex-wrap items-center justify-between text-on-surface-variant font-data-mono-md text-data-mono-md">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1">
+<span class="w-3 h-0.5 bg-[#0284c7]"></span>
+<span class="">Ground Vector (Solid)</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-3 h-0.5 border-t border-dashed border-[#b4c5ff]"></span>
+<span class="">Aerial Arc (Dashed)</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-3 h-0.5 bg-[#ffb4ab]"></span>
+<span class="">Progressive Through Ball (Coned)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="text-on-surface font-bold text-primary" id="vector-counter">6 Vectors Drawn</span>
+<span class="">|</span>
+<span class="">Drag node to re-position • Click node to draw vector</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Squad Rosters Positioned Side-by-Side Under the Field -->
+<section class="w-full px-space-lg pb-space-2xl">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
+<!-- Home Squad Column -->
+<div class="flex flex-col bg-surface-container-low rounded-xl p-space-md shadow-md">
+<!-- Team Header -->
+<div class="flex items-center justify-between pb-space-sm bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-[#0284c7] flex items-center justify-center text-white font-headline-md text-body-md font-bold shadow-sm">
+              M
+            </div>
+<div class="flex flex-col">
+<span class="font-headline-md text-title-md text-on-surface font-bold tracking-tight">MANCHESTER BLUE</span>
+<span class="font-label-caps text-label-caps text-primary">FORMATION: 4-3-3 ATTACKING</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs text-right">
+<div class="bg-surface-container px-space-sm py-1 rounded">
+<span class="font-label-caps text-label-caps text-on-surface-variant block">POSSESSION</span>
+<span class="font-data-mono-lg text-data-mono-md font-bold text-secondary">58.4%</span>
+</div>
+<div class="bg-surface-container px-space-sm py-1 rounded">
+<span class="font-label-caps text-label-caps text-on-surface-variant block">PASS SUCC.</span>
+<span class="font-data-mono-lg text-data-mono-md font-bold text-primary">89.2%</span>
+</div>
+</div>
+</div>
+<!-- Squad Players Table / Card List -->
+<div class="flex flex-col gap-1.5 mt-space-sm overflow-y-auto max-h-[480px] pr-1" id="home-roster-list"></div>
+</div>
+<!-- Away Squad Column -->
+<div class="flex flex-col bg-surface-container-low rounded-xl p-space-md shadow-md">
+<!-- Team Header -->
+<div class="flex items-center justify-between pb-space-sm bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-tertiary-container flex items-center justify-center text-white font-headline-md text-body-md font-bold shadow-sm">
+              R
+            </div>
+<div class="flex flex-col">
+<span class="font-headline-md text-title-md text-on-surface font-bold tracking-tight">REAL MADRID CF</span>
+<span class="font-label-caps text-label-caps text-tertiary">FORMATION: 4-3-3 TRANSITION</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs text-right">
+<div class="bg-surface-container px-space-sm py-1 rounded">
+<span class="font-label-caps text-label-caps text-on-surface-variant block">PPDA</span>
+<span class="font-data-mono-lg text-data-mono-md font-bold text-tertiary">9.2</span>
+</div>
+<div class="bg-surface-container px-space-sm py-1 rounded">
+<span class="font-label-caps text-label-caps text-on-surface-variant block">TRANSITIONS</span>
+<span class="font-data-mono-lg text-data-mono-md font-bold text-on-surface">18 High</span>
+</div>
+</div>
+</div>
+<!-- Squad Players Table / Card List -->
+<div class="flex flex-col gap-1.5 mt-space-sm overflow-y-auto max-h-[480px] pr-1" id="away-roster-list"></div>
+</div>
+</div>
+</section>
+</div>
+<script>
+(() => {
+  // --- 1. SQUAD DATASETS (22 Starting Players: 11 Home & 11 Away) ---
+  const homePlayers = [
+    { id: 'h1', num: 1, name: 'Ederson', pos: 'GK', x: 8, y: 50, passes: '28/31', pct: '90%', xt: '+0.04', prog: 2 },
+    { id: 'h2', num: 2, name: 'K. Walker', pos: 'RB', x: 26, y: 84, passes: '54/59', pct: '91%', xt: '+0.12', prog: 5 },
+    { id: 'h5', num: 5, name: 'J. Stones', pos: 'CB', x: 22, y: 62, passes: '68/72', pct: '94%', xt: '+0.18', prog: 7 },
+    { id: 'h3', num: 3, name: 'R. Dias', pos: 'CB', x: 22, y: 38, passes: '74/77', pct: '96%', xt: '+0.09', prog: 4 },
+    { id: 'h24', num: 24, name: 'J. Gvardiol', pos: 'LB', x: 26, y: 16, passes: '61/68', pct: '89%', xt: '+0.21', prog: 6 },
+    { id: 'h16', num: 16, name: 'Rodri', pos: 'DM', x: 38, y: 50, passes: '88/93', pct: '94%', xt: '+0.36', prog: 11 },
+    { id: 'h17', num: 17, name: 'K. De Bruyne', pos: 'AM', x: 44, y: 70, passes: '46/55', pct: '83%', xt: '+0.58', prog: 14 },
+    { id: 'h20', num: 20, name: 'B. Silva', pos: 'CM', x: 43, y: 32, passes: '58/63', pct: '92%', xt: '+0.27', prog: 8 },
+    { id: 'h47', num: 47, name: 'P. Foden', pos: 'RW', x: 49, y: 82, passes: '39/44', pct: '88%', xt: '+0.41', prog: 9 },
+    { id: 'h10', num: 10, name: 'J. Grealish', pos: 'LW', x: 49, y: 18, passes: '41/46', pct: '89%', xt: '+0.33', prog: 8 },
+    { id: 'h9', num: 9, name: 'E. Haaland', pos: 'ST', x: 50, y: 50, passes: '16/20', pct: '80%', xt: '+0.49', prog: 4 }
+  ];
+
+  const awayPlayers = [
+    { id: 'a1', num: 1, name: 'T. Courtois', pos: 'GK', x: 92, y: 50, passes: '24/29', pct: '82%', xt: '+0.02', prog: 1 },
+    { id: 'a2', num: 2, name: 'D. Carvajal', pos: 'RB', x: 74, y: 16, passes: '45/52', pct: '86%', xt: '+0.15', prog: 6 },
+    { id: 'a3', num: 3, name: 'E. Militão', pos: 'CB', x: 78, y: 38, passes: '52/56', pct: '92%', xt: '+0.08', prog: 3 },
+    { id: 'a22', num: 22, name: 'A. Rüdiger', pos: 'CB', x: 78, y: 62, passes: '59/64', pct: '92%', xt: '+0.11', prog: 4 },
+    { id: 'a23', num: 23, name: 'F. Mendy', pos: 'LB', x: 74, y: 84, passes: '38/42', pct: '90%', xt: '+0.10', prog: 4 },
+    { id: 'a8', num: 8, name: 'T. Kroos', pos: 'CM', x: 64, y: 34, passes: '82/87', pct: '94%', xt: '+0.42', prog: 12 },
+    { id: 'a12', num: 12, name: 'E. Camavinga', pos: 'DM', x: 62, y: 50, passes: '51/55', pct: '92%', xt: '+0.19', prog: 7 },
+    { id: 'a15', num: 15, name: 'F. Valverde', pos: 'CM', x: 64, y: 66, passes: '48/54', pct: '88%', xt: '+0.29', prog: 8 },
+    { id: 'a5', num: 5, name: 'J. Bellingham', pos: 'AM', x: 57, y: 50, passes: '42/48', pct: '87%', xt: '+0.39', prog: 9 },
+    { id: 'a11', num: 11, name: 'Rodrygo', pos: 'RW', x: 53, y: 22, passes: '31/37', pct: '83%', xt: '+0.34', prog: 6 },
+    { id: 'a7', num: 7, name: 'Vinícius Jr.', pos: 'LW', x: 53, y: 78, passes: '29/36', pct: '80%', xt: '+0.52', prog: 10 }
+  ];
+
+  // Pre-drawn Vectors to showcase high analytics realism
+  let vectors = [
+    { from: 'h1', to: 'h5', type: 'ground', xt: '+0.03', dist: '18m', vel: '14m/s' },
+    { from: 'h5', to: 'h16', type: 'ground', xt: '+0.11', dist: '22m', vel: '16m/s' },
+    { from: 'h16', to: 'h17', type: 'ground', xt: '+0.24', dist: '24m', vel: '18m/s' },
+    { from: 'h17', to: 'h9', type: 'through', xt: '+0.38', dist: '26m', vel: '21m/s' },
+    { from: 'h24', to: 'h10', type: 'aerial', xt: '+0.18', dist: '32m', vel: '19m/s' },
+    { from: 'a8', to: 'a7', type: 'through', xt: '+0.34', dist: '38m', vel: '22m/s' }
+  ];
+
+  // Tactical Engine State
+  let activeTool = 'draw'; // 'draw' or 'drag'
+  let activeVectorType = 'ground'; // 'ground', 'aerial', 'through'
+  let selectedPlayerId = 'h17'; // default selected
+  let drawingSourcePlayer = null;
+  let showVoronoi = false;
+
+  const pitchContainer = document.getElementById('pitch-container');
+  const playersLayer = document.getElementById('players-layer');
+  const passLinesGroup = document.getElementById('pass-lines-group');
+  const draftVectorLine = document.getElementById('draft-vector-line');
+  const inspectorBadge = document.getElementById('inspector-badge');
+  const inspectorName = document.getElementById('inspector-name');
+  const voronoiSvg = document.getElementById('voronoi-svg');
+  const voronoiZones = document.getElementById('voronoi-zones');
+  const vectorCounter = document.getElementById('vector-counter');
+
+  // --- 2. RENDER PLAYERS ON PITCH & SYNCHRONIZED ROSTERS ---
+  function getPlayerById(pid) {
+    return homePlayers.find(p => p.id === pid) || awayPlayers.find(p => p.id === pid);
+  }
+
+  function renderPitchPlayers() {
+    playersLayer.innerHTML = '';
+    const all = [...homePlayers, ...awayPlayers];
+
+    all.forEach(player => {
+      const isHome = player.id.startsWith('h');
+      const el = document.createElement('div');
+      el.id = `node-${player.id}`;
+      el.dataset.id = player.id;
+      el.className = `absolute pointer-events-auto transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-transform duration-75 flex flex-col items-center group z-30 select-none`;
+      el.style.left = `${player.x}%`;
+      el.style.top = `${player.y}%`;
+
+      const ringColor = isHome ? 'border-[#0284c7] text-[#0284c7]' : 'border-error text-error';
+      const bgColor = 'bg-[#0b1326]';
+      const badgeAura = (player.id === selectedPlayerId) ? 'ring-4 ring-primary ring-offset-2 ring-offset-surface scale-125' : '';
+
+      el.innerHTML = `
+        <div class="player-badge relative w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 ${ringColor} ${bgColor} ${badgeAura} flex items-center justify-center shadow-lg transition-all">
+          <span class="font-data-mono-md text-tactical-node text-white font-bold leading-none pointer-events-none">${player.num}</span>
+          <span class="absolute -bottom-1 -right-1 text-[8px] font-label-caps font-extrabold px-1 py-0.2 rounded bg-surface-container-highest text-on-surface border border-surface-container-high leading-tight">${player.pos}</span>
+        </div>
+        <div class="opacity-80 group-hover:opacity-100 transition-opacity mt-1 px-1.5 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur pointer-events-none whitespace-nowrap shadow-sm">
+          <span class="font-label-caps text-[9px] text-on-surface font-semibold">${player.name}</span>
+        </div>
+      `;
+
+      // Event Handlers for Drag & Click/Draw
+      el.addEventListener('mousedown', (e) => handlePlayerMouseDown(e, player));
+      el.addEventListener('click', (e) => handlePlayerClick(e, player));
+
+      playersLayer.appendChild(el);
+    });
+  }
+
+  function renderRosterLists() {
+    const homeList = document.getElementById('home-roster-list');
+    const awayList = document.getElementById('away-roster-list');
+    homeList.innerHTML = '';
+    awayList.innerHTML = '';
+
+    homePlayers.forEach(p => {
+      homeList.appendChild(createPlayerCard(p, true));
+    });
+
+    awayPlayers.forEach(p => {
+      awayList.appendChild(createPlayerCard(p, false));
+    });
+  }
+
+  function createPlayerCard(player, isHome) {
+    const isSelected = player.id === selectedPlayerId;
+    const card = document.createElement('div');
+    card.id = `card-${player.id}`;
+    card.dataset.id = player.id;
+    card.className = `p-space-sm rounded cursor-pointer transition-all flex items-center justify-between ${
+      isSelected 
+        ? 'bg-surface-container-high shadow-md pl-space-md border-l-4 border-primary' 
+        : 'bg-surface-container hover:bg-surface-container-high'
+    }`;
+
+    const numBadgeBg = isHome ? 'bg-[#0284c7]' : 'bg-error';
+
+    card.innerHTML = `
+      <div class="flex items-center gap-space-sm min-w-0">
+        <span class="w-6 h-6 rounded flex items-center justify-center ${numBadgeBg} text-white font-data-mono-md text-data-mono-md font-bold shrink-0">
+          ${player.num}
+        </span>
+        <div class="flex flex-col min-w-0">
+          <div class="flex items-center gap-1.5">
+            <span class="font-title-md text-body-md text-on-surface font-semibold truncate">${player.name}</span>
+            <span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container-lowest px-1 rounded">${player.pos}</span>
+          </div>
+          <span class="font-data-mono-md text-[11px] text-on-surface-variant">Pass Vol: ${player.passes} (${player.pct})</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-space-md shrink-0">
+        <div class="text-right">
+          <span class="font-label-caps text-label-caps text-on-surface-variant block">xT CREATED</span>
+          <span class="font-data-mono-md text-data-mono-md font-bold text-primary">${player.xt}</span>
+        </div>
+        <div class="text-right hidden sm:block">
+          <span class="font-label-caps text-label-caps text-on-surface-variant block">PROG. PASS</span>
+          <span class="font-data-mono-md text-data-mono-md font-bold text-secondary">${player.prog}</span>
+        </div>
+        <span class="material-symbols-outlined text-sm ${isSelected ? 'text-primary' : 'text-on-surface-variant'}">chevron_right</span>
+      </div>
+    `;
+
+    card.addEventListener('click', () => {
+      selectPlayer(player.id, false);
+    });
+
+    return card;
+  }
+
+  // --- 3. BI-DIRECTIONAL SELECTION SYNCHRONIZATION ---
+  function selectPlayer(playerId, shouldScrollCard = false) {
+    selectedPlayerId = playerId;
+    const player = getPlayerById(playerId);
+
+    if (!player) return;
+
+    // Update Field Nodes
+    document.querySelectorAll('#players-layer .player-badge').forEach(b => {
+      b.classList.remove('ring-4', 'ring-primary', 'ring-offset-2', 'ring-offset-surface', 'scale-125');
+    });
+    const targetBadge = document.querySelector(`#node-${playerId} .player-badge`);
+    if (targetBadge) {
+      targetBadge.classList.add('ring-4', 'ring-primary', 'ring-offset-2', 'ring-offset-surface', 'scale-125');
+    }
+
+    // Update Squad List Highlight
+    document.querySelectorAll('#home-roster-list > div, #away-roster-list > div').forEach(c => {
+      c.className = 'p-space-sm rounded cursor-pointer transition-all flex items-center justify-between bg-surface-container hover:bg-surface-container-high';
+      const chevron = c.querySelector('.material-symbols-outlined');
+      if (chevron) chevron.className = 'material-symbols-outlined text-sm text-on-surface-variant';
+    });
+    const targetCard = document.getElementById(`card-${playerId}`);
+    if (targetCard) {
+      targetCard.className = 'p-space-sm rounded cursor-pointer transition-all flex items-center justify-between bg-surface-container-high shadow-md pl-space-md border-l-4 border-primary';
+      const chevron = targetCard.querySelector('.material-symbols-outlined');
+      if (chevron) chevron.className = 'material-symbols-outlined text-sm text-primary';
+      // Only scroll within container if explicitly requested by user interaction, never automatically moving page scroll
+      if (shouldScrollCard && targetCard.parentElement) {
+        const parent = targetCard.parentElement;
+        const topPos = targetCard.offsetTop - parent.offsetTop;
+        parent.scrollTop = topPos;
+      }
+    }
+
+    // Update Inspector Top Bar
+    if (inspectorName && inspectorBadge) {
+      inspectorName.textContent = `#${player.num} ${player.name} (${player.pos})`;
+      const xtBadge = inspectorBadge.querySelector('.text-primary');
+      if (xtBadge) xtBadge.textContent = `xT: ${player.xt}`;
+    }
+  }
+
+  // --- 4. PASS VECTOR RENDERING ENGINE (SVG) ---
+  function renderVectors() {
+    passLinesGroup.innerHTML = '';
+
+    vectors.forEach((vec, idx) => {
+      const pFrom = getPlayerById(vec.from);
+      const pTo = getPlayerById(vec.to);
+      if (!pFrom || !pTo) return;
+
+      // Coordinate Space: 1050 x 680
+      const x1 = (pFrom.x / 100) * 1050;
+      const y1 = (pFrom.y / 100) * 680;
+      const x2 = (pTo.x / 100) * 1050;
+      const y2 = (pTo.y / 100) * 680;
+
+      // Calculate Midpoint for label
+      const midX = (x1 + x2) / 2;
+      const midY = (y1 + y2) / 2;
+
+      let strokeColor = '#0284c7';
+      let strokeDash = 'none';
+      let markerEnd = 'url(#arrow-ground)';
+      let pathD = `M ${x1} ${y1} L ${x2} ${y2}`;
+
+      if (vec.type === 'aerial') {
+        strokeColor = '#b4c5ff';
+        strokeDash = '6,4';
+        markerEnd = 'url(#arrow-aerial)';
+        // Curved quadratic bezier arc
+        const dx = x2 - x1;
+        const dy = y2 - y1;
+        const arcDepth = -45;
+        const ctrlX = midX - (dy / Math.hypot(dx, dy)) * arcDepth;
+        const ctrlY = midY + (dx / Math.hypot(dx, dy)) * arcDepth;
+        pathD = `M ${x1} ${y1} Q ${ctrlX} ${ctrlY} ${x2} ${y2}`;
+      } else if (vec.type === 'through') {
+        strokeColor = '#ffb4ab';
+        markerEnd = 'url(#arrow-through)';
+      }
+
+      // Create Vector Path
+      const pathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      pathEl.setAttribute('d', pathD);
+      pathEl.setAttribute('stroke', strokeColor);
+      pathEl.setAttribute('stroke-width', '2.8');
+      pathEl.setAttribute('stroke-dasharray', strokeDash);
+      pathEl.setAttribute('fill', 'none');
+      pathEl.setAttribute('marker-end', markerEnd);
+      pathEl.setAttribute('class', 'transition-all');
+      passLinesGroup.appendChild(pathEl);
+
+      // Label Pin (Distance + xT)
+      const gLabel = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      gLabel.setAttribute('transform', `translate(${midX}, ${midY})`);
+      gLabel.setAttribute('class', 'cursor-pointer hover:opacity-100');
+
+      const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      rect.setAttribute('x', '-38');
+      rect.setAttribute('y', '-11');
+      rect.setAttribute('width', '76');
+      rect.setAttribute('height', '20');
+      rect.setAttribute('rx', '4');
+      rect.setAttribute('fill', '#0b1326');
+      rect.setAttribute('stroke', strokeColor);
+      rect.setAttribute('stroke-width', '1');
+      rect.setAttribute('opacity', '0.92');
+
+      const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      text.setAttribute('x', '0');
+      text.setAttribute('y', '3');
+      text.setAttribute('fill', '#dae2fd');
+      text.setAttribute('font-family', 'JetBrains Mono');
+      text.setAttribute('font-size', '9.5px');
+      text.setAttribute('font-weight', '600');
+      text.setAttribute('text-anchor', 'middle');
+      text.textContent = `${vec.dist} • ${vec.xt}`;
+
+      gLabel.appendChild(rect);
+      gLabel.appendChild(text);
+
+      // Click vector badge to delete
+      gLabel.addEventListener('click', (e) => {
+        e.stopPropagation();
+        vectors.splice(idx, 1);
+        renderVectors();
+        updateVectorStats();
+      });
+
+      passLinesGroup.appendChild(gLabel);
+    });
+
+    vectorCounter.textContent = `${vectors.length} Vectors Drawn`;
+  }
+
+  function updateVectorStats() {
+    const count = vectors.length;
+    const progElem = document.getElementById('stat-prog-passes');
+    if (progElem) progElem.textContent = 18 + count;
+    const netXt = (1.12 + count * 0.08).toFixed(2);
+    const xtElem = document.getElementById('stat-xt');
+    if (xtElem) xtElem.textContent = `+${netXt}`;
+  }
+
+  // --- 5. INTERACTION ENGINE: DRAG PLAYERS & DRAW VECTORS ---
+  let isDraggingNode = false;
+  let draggedPlayer = null;
+
+  function handlePlayerMouseDown(e, player) {
+    if (activeTool === 'drag') {
+      isDraggingNode = true;
+      draggedPlayer = player;
+      e.preventDefault();
+    }
+  }
+
+  function handlePlayerClick(e, player) {
+    e.stopPropagation();
+    selectPlayer(player.id, false);
+
+    if (activeTool === 'draw') {
+      if (!drawingSourcePlayer) {
+        // Start vector from this player
+        drawingSourcePlayer = player;
+        const startX = (player.x / 100) * 1050;
+        const startY = (player.y / 100) * 680;
+        draftVectorLine.setAttribute('x1', startX);
+        draftVectorLine.setAttribute('y1', startY);
+        draftVectorLine.setAttribute('x2', startX);
+        draftVectorLine.setAttribute('y2', startY);
+        draftVectorLine.classList.remove('hidden');
+      } else {
+        // Complete vector to this player
+        if (drawingSourcePlayer.id !== player.id) {
+          const dx = player.x - drawingSourcePlayer.x;
+          const dy = player.y - drawingSourcePlayer.y;
+          const distMeters = Math.round(Math.hypot(dx * 1.05, dy * 0.68));
+          const generatedXt = (0.04 + Math.random() * 0.18).toFixed(2);
+
+          vectors.push({
+            from: drawingSourcePlayer.id,
+            to: player.id,
+            type: activeVectorType,
+            xt: `+${generatedXt}`,
+            dist: `${distMeters}m`,
+            vel: `${Math.round(14 + Math.random() * 8)}m/s`
+          });
+
+          renderVectors();
+          updateVectorStats();
+        }
+        drawingSourcePlayer = null;
+        draftVectorLine.classList.add('hidden');
+      }
+    }
+  }
+
+  pitchContainer.addEventListener('mousemove', (e) => {
+    // Only compute coordinates if an action is currently active
+    if (!isDraggingNode && !drawingSourcePlayer) return;
+
+    const rect = pitchContainer.getBoundingClientRect();
+    const currentX = ((e.clientX - rect.left) / rect.width) * 100;
+    const currentY = ((e.clientY - rect.top) / rect.height) * 100;
+
+    // Moving a Player
+    if (isDraggingNode && draggedPlayer) {
+      draggedPlayer.x = Math.max(2, Math.min(98, currentX));
+      draggedPlayer.y = Math.max(2, Math.min(98, currentY));
+      const nodeEl = document.getElementById(`node-${draggedPlayer.id}`);
+      if (nodeEl) {
+        nodeEl.style.left = `${draggedPlayer.x}%`;
+        nodeEl.style.top = `${draggedPlayer.y}%`;
+      }
+      renderVectors();
+      if (showVoronoi) renderVoronoiCells();
+    }
+
+    // Drawing a vector line preview
+    if (drawingSourcePlayer && !draftVectorLine.classList.contains('hidden')) {
+      const pitchSvgX = ((e.clientX - rect.left) / rect.width) * 1050;
+      const pitchSvgY = ((e.clientY - rect.top) / rect.height) * 680;
+      draftVectorLine.setAttribute('x2', pitchSvgX);
+      draftVectorLine.setAttribute('y2', pitchSvgY);
+    }
+  });
+
+  window.addEventListener('mouseup', () => {
+    isDraggingNode = false;
+    draggedPlayer = null;
+  });
+
+  pitchContainer.addEventListener('click', (e) => {
+    // If clicking pitch empty grass while drawing, cancel draft
+    if (e.target.closest('.player-badge') === null && drawingSourcePlayer) {
+      drawingSourcePlayer = null;
+      draftVectorLine.classList.add('hidden');
+    }
+  });
+
+  // --- 6. SIMULATED VORONOI SPACE PARTITIONING ENGINE ---
+  function renderVoronoiCells() {
+    voronoiZones.innerHTML = '';
+    const all = [...homePlayers, ...awayPlayers];
+
+    all.forEach(p => {
+      const isHome = p.id.startsWith('h');
+      const cx = (p.x / 100) * 1050;
+      const cy = (p.y / 100) * 680;
+      const fill = isHome ? 'rgba(2, 132, 199, 0.16)' : 'rgba(220, 38, 38, 0.14)';
+      const stroke = isHome ? 'rgba(2, 132, 199, 0.35)' : 'rgba(220, 38, 38, 0.35)';
+
+      const poly = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      poly.setAttribute('cx', cx);
+      poly.setAttribute('cy', cy);
+      poly.setAttribute('r', '78');
+      poly.setAttribute('fill', fill);
+      poly.setAttribute('stroke', stroke);
+      poly.setAttribute('stroke-width', '1.5');
+      poly.setAttribute('stroke-dasharray', '4,2');
+
+      voronoiZones.appendChild(poly);
+    });
+  }
+
+  // --- 7. CONTROLS & PRESET BUTTONS BINDINGS ---
+  const btnDraw = document.getElementById('btn-draw-mode');
+  const btnDrag = document.getElementById('btn-drag-mode');
+
+  btnDraw.addEventListener('click', () => {
+    activeTool = 'draw';
+    btnDraw.className = 'px-space-sm py-0.5 rounded bg-primary text-on-primary font-label-caps text-label-caps flex items-center gap-1 shadow-sm';
+    btnDrag.className = 'px-space-sm py-0.5 rounded text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps flex items-center gap-1';
+  });
+
+  btnDrag.addEventListener('click', () => {
+    activeTool = 'drag';
+    drawingSourcePlayer = null;
+    draftVectorLine.classList.add('hidden');
+    btnDrag.className = 'px-space-sm py-0.5 rounded bg-primary text-on-primary font-label-caps text-label-caps flex items-center gap-1 shadow-sm';
+    btnDraw.className = 'px-space-sm py-0.5 rounded text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps flex items-center gap-1';
+  });
+
+  document.querySelectorAll('.vector-type-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.vector-type-btn').forEach(b => {
+        b.className = 'vector-type-btn px-2 py-0.5 rounded text-on-surface-variant hover:text-on-surface font-tactical-node text-tactical-node flex items-center gap-1';
+      });
+      btn.className = 'vector-type-btn active px-2 py-0.5 rounded bg-primary-container text-on-primary-container font-tactical-node text-tactical-node flex items-center gap-1';
+      activeVectorType = btn.dataset.vtype;
+    });
+  });
+
+  document.getElementById('btn-reset-vectors').addEventListener('click', () => {
+    vectors = [];
+    renderVectors();
+    updateVectorStats();
+  });
+
+  document.getElementById('btn-toggle-voronoi').addEventListener('click', () => {
+    showVoronoi = !showVoronoi;
+    const label = document.getElementById('voronoi-label');
+    if (showVoronoi) {
+      renderVoronoiCells();
+      voronoiSvg.classList.remove('opacity-0');
+      voronoiSvg.classList.add('opacity-100');
+      label.textContent = 'Territorial Voronoi: ACTIVE';
+    } else {
+      voronoiSvg.classList.remove('opacity-100');
+      voronoiSvg.classList.add('opacity-0');
+      label.textContent = 'Territorial Voronoi: OFF';
+    }
+  });
+
+  document.getElementById('btn-flip-dir').addEventListener('click', () => {
+    [...homePlayers, ...awayPlayers].forEach(p => {
+      p.x = 100 - p.x;
+    });
+    renderPitchPlayers();
+    renderVectors();
+    if (showVoronoi) renderVoronoiCells();
+  });
+
+  document.getElementById('btn-preset-433').addEventListener('click', () => {
+    const hCoords = [
+      { x: 8, y: 50 }, { x: 26, y: 84 }, { x: 22, y: 62 }, { x: 22, y: 38 }, { x: 26, y: 16 },
+      { x: 38, y: 50 }, { x: 44, y: 70 }, { x: 43, y: 32 }, { x: 49, y: 82 }, { x: 49, y: 18 }, { x: 50, y: 50 }
+    ];
+    homePlayers.forEach((p, idx) => {
+      p.x = hCoords[idx].x;
+      p.y = hCoords[idx].y;
+    });
+    renderPitchPlayers();
+    renderVectors();
+    if (showVoronoi) renderVoronoiCells();
+  });
+
+  document.getElementById('btn-preset-4231').addEventListener('click', () => {
+    const hCoords = [
+      { x: 9, y: 50 }, { x: 28, y: 86 }, { x: 24, y: 64 }, { x: 24, y: 36 }, { x: 28, y: 14 },
+      { x: 36, y: 60 }, { x: 36, y: 40 }, { x: 46, y: 50 }, { x: 48, y: 80 }, { x: 48, y: 20 }, { x: 52, y: 50 }
+    ];
+    homePlayers.forEach((p, idx) => {
+      p.x = hCoords[idx].x;
+      p.y = hCoords[idx].y;
+    });
+    renderPitchPlayers();
+    renderVectors();
+    if (showVoronoi) renderVoronoiCells();
+  });
+
+  // --- INITIALIZATION ---
+  renderPitchPlayers();
+  renderRosterLists();
+  renderVectors();
+  selectPlayer('h17', false);
+})();
+</script></main><footer class="w-full bg-surface-container-lowest py-space-sm px-space-lg flex items-center justify-between shadow-[0_-1px_6px_rgba(0,0,0,0.2)]"><div class="flex items-center gap-space-xl"><div class="flex items-center gap-space-xs"><span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Tactical Ratio</span><span class="font-data-mono-md text-data-mono-md text-primary font-semibold">105m × 68m (1:1.54)</span></div><div class="flex items-center gap-space-xs"><span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Active Vectors</span><span class="font-data-mono-md text-data-mono-md text-on-surface font-semibold">38 Connections</span></div><div class="flex items-center gap-space-xs"><span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Passing Flow</span><span class="font-data-mono-md text-data-mono-md text-secondary font-semibold">84.2% Acc.</span></div><div class="flex items-center gap-space-xs"><span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Expected Threat (xT)</span><span class="font-data-mono-md text-data-mono-md text-tertiary font-semibold">+1.42 Net</span></div></div><div class="flex items-center gap-space-lg"><span class="font-tactical-node text-tactical-node text-on-surface-variant">SYNC: WEBSOCKET 120FPS</span><span class="font-label-caps text-label-caps text-on-surface-variant">© 2025 PASSVECTOR INTELLIGENCE SYSTEMS</span></div></footer></div>
+</body></html>
