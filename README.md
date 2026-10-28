@@ -2,6 +2,8 @@
 
 Pass Insider is a football passing-combination analysis workbench built for the Microsoft Premier League Hackathon. It combines an interactive React pitch with a Flask API that evaluates a sequence of passes against player positions.
 
+![img.png](pass-insider-web-screenshot.png)
+
 ## Solution overview
 
 The solution has two independently deployable parts:
